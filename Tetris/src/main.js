@@ -170,14 +170,6 @@ const board = [
     //game loop
 //Metodos
 
-const piece = {
-    position: {x: 5, y: 5},
-    shape:[
-        [1,1],
-        [1,1]
-    ]
-};
-
 
 //Random Pieces
 
@@ -288,6 +280,20 @@ document.addEventListener('keydown', (event) => {
             removeRows()
         }
     }
+
+
+    if(event.key === 'ArrowUp'){
+        const rotate = []
+        for (let i = 0; i < piece.shape; i++) {
+          const row = []
+          for(let j = piece.shape.length -1; j>=0; j--){
+            row.push(piece.shape[j][i])
+          }
+          rotate.push(row)
+        }
+        piece.shape = rotate
+      }
+    draw()
     
 });
    
